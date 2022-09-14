@@ -1,10 +1,9 @@
-package com.coco.board.presentation;
+package com.coco.board.controller;
 
 import com.coco.board.application.security.auth.LoginUser;
 import com.coco.board.application.UserService;
 import com.coco.board.application.dto.UserDto;
 import com.coco.board.application.validator.CustomValidators;
-import com.coco.board.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Map;
 
 /**

@@ -1,4 +1,4 @@
-package com.coco.board.presentation;
+package com.coco.board.controller;
 
 import com.coco.board.application.security.auth.LoginUser;
 import com.coco.board.application.PostsService;

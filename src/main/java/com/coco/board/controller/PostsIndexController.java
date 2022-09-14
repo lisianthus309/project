@@ -1,4 +1,4 @@
-package com.coco.board.presentation;
+package com.coco.board.controller;
 
 import com.coco.board.application.security.auth.LoginUser;
 import com.coco.board.application.dto.CommentDto;
@@ -6,7 +6,6 @@ import com.coco.board.application.dto.PostsDto;
 import com.coco.board.application.dto.UserDto;
 import com.coco.board.domain.Posts;
 import com.coco.board.application.PostsService;
-import com.coco.board.domain.Role;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

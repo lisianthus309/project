@@ -1,9 +1,8 @@
-package com.coco.board.presentation;
+package com.coco.board.controller;
 
 import com.coco.board.application.UserService;
 import com.coco.board.application.dto.UserDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
