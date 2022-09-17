@@ -45,11 +45,6 @@ public class UserController {
         return "/user/user-join";
     }
 
-    @GetMapping("/admin")
-    public String adminPage() {
-        return "/admin/admin-page";
-    }
-
     /* 회원가입 */
     @PostMapping("/auth/joinProc")
     public String joinProc(@Valid UserDto.Request dto, Errors errors, Model model) {

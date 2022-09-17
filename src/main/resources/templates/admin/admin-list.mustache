@@ -7,23 +7,22 @@
             <th>닉네임</th>
             <th>아이디</th>
             <th>이메일</th>
-            <th>가입일</th>
-            <th>수정일</th>
             <th>권한</th>
+            <th>설정</th>
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#user}}
+        {{#users}}
             <tr>
                 <td>{{nickname}}</td>
                 <td>{{username}}</a></td>
                 <td>{{email}}</td>
-                <td>{{created_date}}</td>
-                <td>{{modified_date}}</td>
                 <td>{{role}}</td>
+                <td><button class="btn btn-primary bi">활동 정지</button></td>
             </tr>
-        {{/user}}
+        {{/users}}
         </tbody>
     </table>
+    {{>admin/admin-page}}
 </div>
 {{>layout/footer}}

@@ -6,6 +6,7 @@ import com.coco.board.application.dto.PostsDto;
 import com.coco.board.application.dto.UserDto;
 import com.coco.board.domain.Posts;
 import com.coco.board.application.PostsService;
+import com.coco.board.domain.Role;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -72,13 +73,18 @@ public class PostsIndexController {
             model.addAttribute("user", user);
 
             /* 게시글 작성자 본인인지 확인 */
-            if (dto.getUserId().equals(user.getId())) {
+            if (dto.getUserId().equals(user.getId()) || user.getRole().equals(Role.ADMIN)) {
                 model.addAttribute("writer", true);
             }
 
             /* 댓글 작성자 본인인지 확인 */
-            if (comments.stream().anyMatch(s -> s.getUserId().equals(user.getId()))) {
+            if (comments.stream().anyMatch(s -> s.getUserId().equals(user.getId()) || user.getRole().equals(Role.ADMIN))) {
                 model.addAttribute("isWriter", true);
+            }
+
+            /* 관리자인지 확인 */
+            if(user.getRole().equals(Role.ADMIN)) {
+                model.addAttribute("admin", true);
             }
 
             /* 관리자인지 확인 */

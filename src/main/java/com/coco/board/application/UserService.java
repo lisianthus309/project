@@ -1,9 +1,12 @@
 package com.coco.board.application;
 
+import com.coco.board.domain.Posts;
 import com.coco.board.domain.User;
 import com.coco.board.infrastructure.persistence.UserRepository;
 import com.coco.board.application.dto.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -22,8 +26,10 @@ public class UserService {
     private final BCryptPasswordEncoder encoder;
 
     /* 유저 리스트 */
-    public User findUser(Long id) {
-        return userRepository.findById(id).get();
+    @Transactional
+    public Page<User> userList(Pageable pageable) {
+
+        return userRepository.findAll(pageable);
     }
 
     /* 회원가입 */
